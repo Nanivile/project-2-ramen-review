@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+    <div>Restaurant: </div>
+    <div>
+        <%= shop.restaurant %>
+    </div>
+    <div>Hours Open: </div>
+    <div>
+        <%= shop.hoursOpen %>
+    </div>
+    <div>Ramen: </div>
+    <div>
+        <%= shop.ramen.join(', ') %></div>
+    <div>Now Showing: </div>
+    <div><%= shop.delivers ? ' Yes' : 'Nope' %>
+    </div>
+</section>
+
+<%- include('../partials/footer') %>
