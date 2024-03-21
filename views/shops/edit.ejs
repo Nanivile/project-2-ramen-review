@@ -1,8 +1,9 @@
 <%- include('../partials/header') %>
 
     <h2>Enter a New Ramen Shop</h2>
-    <form id="new-form" action="/shops" method="POST">
+    <form id="new-form" action="/shops/<%= shop._id %>?_method=PUT" method="POST" >
         <label>Restaurant:</label>
+
         <input type="text" name="restaurant">
 
         <label>Hours Open:</label>
@@ -18,7 +19,7 @@
             </select>
         </label><br> -->
         <label>Dose Deliver:</label>
-        <input type="checkbox" name="delivers" >
+        <input type="checkbox" name="delivers" checked>
 
         <button type="submit">Add Shop</button>
     </form>

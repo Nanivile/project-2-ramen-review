@@ -4,8 +4,22 @@ module.exports = {
   index,
   show,
   new: newShop,
-  create
+  create,
+  delete: deleteShop,
+  editShop,
+  updateShop
 };
+
+ async function deleteShop(req, res) {
+    await Shop.findByIdAndDelete(req.params.id)
+    res.redirect('/shops')
+}
+
+async function updateShop(req, res) {
+    req.body.delivers = !!req.body.delivers;
+    await Shop.findByIdAndUpdate(req.params.id, req.body)
+    res.redirect('/shops')
+}
 
 async function index(req, res) {
   const shops = await Shop.find({});
@@ -21,6 +35,11 @@ function newShop(req, res) {
   // We'll want to be able to render an  
   // errorMsg if the create action fails
   res.render('shops/new', { title: 'Add Shop', errorMsg: '' });
+}
+
+async function editShop( req, res) {
+    const shop = await Shop.findById(req.params.id)
+    res.render('shops/edit', {title: 'Edit Shop', shop, errorMsg: '' }) 
 }
 
 async function create(req, res) {

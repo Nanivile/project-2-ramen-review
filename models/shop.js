@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const shops = require('../controllers/shops');
 
 const Schema = mongoose.Schema;
 
@@ -29,11 +30,17 @@ const shopSchema = new Schema({
     ramen: [String],
     delivers: {
       type: Boolean,
-      default: true
+      default: false
     },
     reviews: [reviewSchema]
   }, {
     timestamps: true
   });
 
-  module.exports = mongoose.model('Shop', shopSchema);
+  // function deleteOne(id) {
+  //   id = parseInt(id)
+  //   const idx = shops.findIndex(shop => shop.id ===id)
+  //   shops.splice(idx, 1)
+  // }
+
+  module.exports = mongoose.model('Shop', shopSchema,);

@@ -18,6 +18,7 @@
                 <form action="/shops/<%= s.id %>?_method=DELETE" method="POST" class="delete-form">
                     <button type="submit">X</button>
                 </form>
+                <a href="/shops/<%= s._id %>/edit">edit</a>
                 <td>
                     <%= s.restaurant %>
                 </td>
@@ -28,7 +29,7 @@
                     <%= s.ramen.join(', ') %></td>
         <!-- finish the ternary expression to display ' Yes' or 'Nope' -->
                 <td>
-                    <%= s.deliver ? 'Yes' : 'Nope' %>
+                    <%= s.delivers ? 'Yes' : 'Nope' %>
                 </td>
                 <td>
                     <a href="/shops/<%= s._id %>">VIEW</a>
