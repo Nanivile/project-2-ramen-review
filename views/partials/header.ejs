@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <title><%= title %></title>
 </head>
 <body>
     <nav>
+        <img src="/images/camera.svg">
         <a href="/">Home</a> | 
-        <a href="shops/new">Add Shop</a> | 
-        <a href="/shops">Restaurant</a> |  
+        <a href="shops/new" <%- title === 'Add Shop' ? 'class="active"' : '' %>>ADD SHOP</a> | 
+        <a href="/shops" <%- title === 'All Shops' ? 'class="active"' : '' %>>RESTAURANT</a> |  
         <!-- <a href="/review">Review</a> |  -->
-        <a href="/top">Top Ramen</a>
+        <a href="/tops">Top Ramen</a>
     </nav>
     <main>
         <h1><%= title %></h1>

@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
     <h2>Restaurant List</h2>
-    <table>
+    <table id="list">
         <thead>
             <tr>
                 <th>Restaurant</th>
@@ -12,9 +12,12 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Write the line of EJS to iterate over movies using forEach -->
+            <!-- Write the line of EJS to iterate over shops using forEach -->
             <% shops.forEach(function(s) { %>
             <tr>
+                <form action="/shops/<%= s.id %>?_method=DELETE" method="POST" class="delete-form">
+                    <button type="submit">X</button>
+                </form>
                 <td>
                     <%= s.restaurant %>
                 </td>

@@ -15,4 +15,6 @@ router.get('/:id', shopsCtrl.show)
 
 router.post('/', shopsCtrl.create)
 
+// DELETE /shop/:id
+
 module.exports = router;

@@ -1,25 +1,25 @@
 <%- include('../partials/header') %>
 
     <h2>Enter a New Ramen Shop</h2>
-    <form action="/shops" method="POST">
-        <label>Restaurant:
-            <input type="text" name="restaurant">
-        </label><br>
-        <label>Hours Open:
-            <input type="string" name="hoursOpen">
-        </label><br>
-        <label>Ramen:
-            <input type="text" name="ramen">
-        </label><br>
+    <form id="new-form" action="/shops" method="POST">
+        <label>Restaurant:</label>
+        <input type="text" name="restaurant">
+
+        <label>Hours Open:</label>
+        <input type="string" name="hoursOpen">
+
+        <label>Ramen:</label>
+        <input type="text" name="ramen">
+
         <!-- <label>Dose Deliver
             <select name="delivers">
                 <option value="YES">YES</option>
                 <option value="NOPE">NOPE</option>
             </select>
         </label><br> -->
-        <label>Dose Deliver:
-            <input type="checkbox" name="delivers" checked>
-        </label><br>
+        <label>Dose Deliver:</label>
+        <input type="checkbox" name="delivers" checked>
+
         <button type="submit">Add Shop</button>
     </form>
     <p>

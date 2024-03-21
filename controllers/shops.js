@@ -1,42 +1,43 @@
-const Shop = require('../models/shop')
+const Shop = require('../models/shop');
 
 module.exports = {
-    new: newShop,
-    create,
-    index,
-    show
+  index,
+  show,
+  new: newShop,
+  create
 };
 
-async function show(req, res) {
-    const shop = await Shop.findById(req.params.id)
-    res.render('shops/show',{
-        title: 'Shop Detail',
-        shop
-    })
+async function index(req, res) {
+  const shops = await Shop.find({});
+  res.render('shops/index', { title: 'All Shops', shops });
 }
 
-async function index(req, res) {
-    const shops = await Shop.find({})
-    res.render('shops/index', { title: 'All Shops', shops })
+async function show(req, res) {
+  const shop = await Shop.findById(req.params.id);
+  res.render('shops/show', { title: 'Shop Detail', shop });
 }
 
 function newShop(req, res) {
-    res.render('shops/new', {
-        title: 'Add Shop',
-        errorMsg: ''
-    });
+  // We'll want to be able to render an  
+  // errorMsg if the create action fails
+  res.render('shops/new', { title: 'Add Shop', errorMsg: '' });
 }
 
 async function create(req, res) {
-    req.body.delivers = !!req.body.delivers
-    req.body.ramen = req.body.ramen.trim();
-    if (req.body.ramen) req.body.ramen = req.body.ramen.split(/\s*,\s*/);
-    console.log(req.body)
-    try {
-        await Shop.create(req.body);
-        res.redirect('/shops');
-    } catch (err) {
-        console.log(err);
-        res.render('shops/new', { errorMsg: err.message });
-    }
+  // convert nowShowing's checkbox of nothing or "on" to boolean
+  req.body.delivers = !!req.body.delivers;
+  // Remove empty properties so that defaults will be applied
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key];
+  }
+  try {
+    await Shop.create(req.body);
+    // Always redirect after CUDing data
+    // We'll refactor to redirect to the shops index after we implement it
+    res.redirect('/shops');  // Update this line
+  } catch (err) {
+    // Typically some sort of validation error
+    console.log(err);
+    res.render('shops/new', { errorMsg: err.message });
+  }
 }
