@@ -2,19 +2,17 @@
 
 <section id="show-page">
     <div>Restaurant: </div>
-    <div>
-        <%= shop.restaurant %>
-    </div>
+    <div><%= shop.restaurant %></div>
     <div>Hours Open: </div>
-    <div>
-        <%= shop.hoursOpen %>
-    </div>
+    <div><%= shop.hoursOpen %></div>
     <div>Ramen: </div>
     <div>
-        <%= shop.ramen.join(', ') %></div>
-    <div>Dose Deliver: </div>
-    <div><%= shop.delivers ? ' Yes' : 'Nope' %>
+        <% shop.ramen.forEach(function(ramen) { %>
+            <div><%= ramen %></div>
+        <% }) %>
     </div>
+    <div>Does Deliver: </div>
+    <div><%= shop.delivers ? ' Yes' : 'Nope' %></div>
 </section>
 
 <br><br>

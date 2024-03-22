@@ -162,15 +162,19 @@ hr {
   text-align: center;
 }
 
-/* .delete-form {
-  display: inline-block;
-  margin-right: 10px;
+.ramen-input {
+  display: flex;
+  flex-direction: column;
 }
-	
-.delete-form button {
-  color: red;
+
+.body-int {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
 }
-	
-li {
-  list-style: none;
-} */
+.intro {
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 20px;
+}

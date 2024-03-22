@@ -7,7 +7,7 @@ const topSchema = new Schema({
     required: true,
     unique: true
   },
-  born: Date
+  // born: Date
 }, {
   timestamps: true
 });
