@@ -14,11 +14,13 @@
         <tbody>
             <!-- Write the line of EJS to iterate over shops using forEach -->
             <% shops.forEach(function(s) { %>
-            <tr>
-                <form action="/shops/<%= s.id %>?_method=DELETE" method="POST" class="delete-form">
-                    <button type="submit">X</button>
-                </form>
-                <a href="/shops/<%= s._id %>/edit">edit</a>
+                <tr>
+                <td>
+                    <form action="/shops/<%= s.id %>?_method=DELETE" method="POST" class="delete-form">
+                        <button type="submit">Delete</button>
+                    </form>
+                    <a href="/shops/<%= s._id %>/edit">Edit</a>
+                </td>
                 <td>
                     <%= s.restaurant %>
                 </td>
@@ -26,8 +28,8 @@
                     <%= s.hoursOpen %>
                 </td>
                 <td>
-                    <%= s.ramen.join(', ') %></td>
-        <!-- finish the ternary expression to display ' Yes' or 'Nope' -->
+                    <%= s.ramen.join(', ') %>
+                </td>
                 <td>
                     <%= s.delivers ? 'Yes' : 'Nope' %>
                 </td>
